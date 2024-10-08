@@ -28,7 +28,7 @@ public class ElasticsearchService {
     }
 
     public void indexDocument(String indexName, String id, SampleDocument document) throws IOException {
-        IndexResponse response = elasticsearchClient.index(i -> i
+        IndexResponse response = elasticsearchClient.index(indexRequest -> indexRequest
                 .index(indexName)
                 .id(id)
                 .document(document)

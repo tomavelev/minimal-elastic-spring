@@ -1,10 +1,18 @@
 package com.programtom.elasticsearchapp;
 
-public class SampleDocument {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
+@Document(indexName = "users")
+public class SampleDocument {
+    @Id
     private String id;
+    @Field(name = "name", type = FieldType.Text, analyzer = "english")
     private String message;
 
+    @SuppressWarnings("unused")
     public SampleDocument() {
 
     }
